@@ -51,6 +51,18 @@ jobs:
           npm install @capacitor/core @capacitor/cli @capacitor/android
           npx cap add android
           npx cap copy android
+      - name: 修复Kotlin重复类冲突
+        run: |
+          cat >> android/app/build.gradle << 'GR'
+
+          configurations.all {
+              resolutionStrategy {
+                  force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+                  force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+                  force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
+              }
+          }
+          GR
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
