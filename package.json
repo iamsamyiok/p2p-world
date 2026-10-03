@@ -1,6 +1,6 @@
 {
   "name": "p2p-world",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "P2P平行世界 - 无服务器存储的点对点加密聊天室 (WebRTC)",
   "main": "main.js",
   "scripts": {
@@ -15,9 +15,46 @@
   "build": {
     "appId": "io.github.iamsamyiok.p2pworld",
     "productName": "P2P平行世界",
-    "files": ["main.js", "site/**"],
-    "win": { "target": [{ "target": "portable", "arch": ["x64"] }] },
-    "linux": { "target": ["AppImage"], "category": "Network" },
-    "mac": { "target": ["zip"], "category": "public.app-category.social-networking" }
+    "files": [
+      "main.js",
+      "site/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Network",
+      "artifactName": "P2P-World-${version}-Linux.${ext}"
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "category": "public.app-category.social-networking",
+      "artifactName": "P2P-World-${version}-macOS-${arch}.${ext}"
+    },
+    "executableName": "P2PWorld",
+    "artifactName": "P2P-World-${version}-${os}.${ext}",
+    "nsis": {
+      "oneClick": true,
+      "include": "build/installer.nsh",
+      "artifactName": "P2P-World-${version}-Windows-Setup.${ext}"
+    }
   }
 }
