@@ -1,0 +1,6 @@
+{
+  "appId": "io.github.iamsamyiok.p2pworld",
+  "appName": "P2P World",
+  "webDir": "site",
+  "android": { "allowMixedContent": false }
+}

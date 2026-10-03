@@ -1,0 +1,23 @@
+{
+  "name": "p2p-world",
+  "version": "1.0.0",
+  "description": "P2P平行世界 - 无服务器存储的点对点加密聊天室 (WebRTC)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.github.iamsamyiok.p2pworld",
+    "productName": "P2P平行世界",
+    "files": ["main.js", "site/**"],
+    "win": { "target": [{ "target": "portable", "arch": ["x64"] }] },
+    "linux": { "target": ["AppImage"], "category": "Network" },
+    "mac": { "target": ["zip"], "category": "public.app-category.social-networking" }
+  }
+}
